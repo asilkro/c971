@@ -1,7 +1,7 @@
 ﻿using System;
 using SQLite;
 
-namespace c971.Classes
+namespace c971.Models
 {
     [Table("Course")]
     public class Course

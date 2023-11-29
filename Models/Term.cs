@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace c971.Classes
+namespace c971.Models
 {
     [Table("Term")]
     public class Term
