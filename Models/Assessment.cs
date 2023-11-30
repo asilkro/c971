@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace c971.Models
+namespace CourseTracker.Models
 {
     [Table("Assessment")]
     public class Assessment

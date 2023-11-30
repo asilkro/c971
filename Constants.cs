@@ -1,5 +1,8 @@
 ﻿using System;
-namespace c971
+using System.IO;
+using Microsoft.Maui.Storage;
+
+namespace CourseTracker
 {
 
     public static class Constants
@@ -20,6 +23,9 @@ namespace c971
 
         public static string DatabasePath =>
             Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
+
+        public static string DatabasePath_Platform =>
+            Path.Combine(FileSystem.CacheDirectory, DatabaseFilename);
         #endregion
 
     }

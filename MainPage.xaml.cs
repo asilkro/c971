@@ -1,4 +1,4 @@
-﻿namespace C971;
+﻿namespace CourseTracker;
 
 public partial class MainPage : ContentPage
 {

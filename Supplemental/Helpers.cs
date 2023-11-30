@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Linq;
+using SQLitePCL;
 
-namespace C971.Supplemental
+namespace CourseTracker.Supplemental
 {
     public class Helpers
     {
@@ -9,22 +10,27 @@ namespace C971.Supplemental
         private readonly char dot = '.';
         private readonly char space = ' ';
 
+        public bool EmailIsValid(string email)
+        {
+            var result = false || email.Contains(at) && email.Contains(dot) && !email.Contains(space);
+            return result;
+        }
 
-    public bool InsertToDb()
+        public bool InsertToDb()
         {
             var inserted = false;
 
             //TODO: Unimplemented!
             return inserted;
         }
-    public bool RemoveFromDb()
+        public bool RemoveFromDb()
         {
             var removed = false;
             //TODO: Unimplemented!
 
             return removed;
         }
-    public bool UpdateInDb()
+        public bool UpdateInDb()
         {
             var updated = false;
             //TODO: Unimplemented!
@@ -32,7 +38,7 @@ namespace C971.Supplemental
             return updated;
         }
 
-    public static EmailMessage MakeEmail(string to, string? cc, string? bcc, string? subject, string body)
+        public static EmailMessage MakeEmail(string to, string cc, string bcc, string subject, string body)
         {
             var email = new EmailMessage();
             {
@@ -46,11 +52,11 @@ namespace C971.Supplemental
             return email;
         }
 
-    public static bool IsNullOrEmpty(string whatIsBeingChecked)
+        public static bool IsNullOrEmpty(string whatIsBeingChecked)
         {
             var result = false;
-            
-            if (whatIsBeingChecked != null) 
+
+            if (whatIsBeingChecked != null)
             {
                 result = true;
             }
@@ -58,7 +64,7 @@ namespace C971.Supplemental
             return result;
         }
 
-    public static bool CheckInput(string whatIsBeingChecked, string checkedAgainst)
+        public static bool CheckInput(string whatIsBeingChecked, string checkedAgainst)
         {
             var match = true;
 

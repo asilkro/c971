@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\thata\\source\\repos\\asilkro\\c971\\C971.csproj": {}
+    "C:\\Users\\thata\\source\\repos\\asilkro\\c971\\CourseTracker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\thata\\source\\repos\\asilkro\\c971\\C971.csproj": {
+    "C:\\Users\\thata\\source\\repos\\asilkro\\c971\\CourseTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\thata\\source\\repos\\asilkro\\c971\\C971.csproj",
-        "projectName": "C971",
-        "projectPath": "C:\\Users\\thata\\source\\repos\\asilkro\\c971\\C971.csproj",
+        "projectUniqueName": "C:\\Users\\thata\\source\\repos\\asilkro\\c971\\CourseTracker.csproj",
+        "projectName": "CourseTracker",
+        "projectPath": "C:\\Users\\thata\\source\\repos\\asilkro\\c971\\CourseTracker.csproj",
         "packagesPath": "C:\\Users\\thata\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\thata\\source\\repos\\asilkro\\c971\\obj\\",
         "projectStyle": "PackageReference",
