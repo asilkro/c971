@@ -496,6 +496,9 @@
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
+      "sqlite-net/1.6.292": {
+        "type": "package"
+      },
       "sqlite-net-pcl/1.8.116": {
         "type": "package",
         "dependencies": {
@@ -2853,6 +2856,9 @@
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
+      },
+      "sqlite-net/1.6.292": {
+        "type": "package"
       },
       "sqlite-net-pcl/1.8.116": {
         "type": "package",
@@ -5212,6 +5218,9 @@
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
+      "sqlite-net/1.6.292": {
+        "type": "package"
+      },
       "sqlite-net-pcl/1.8.116": {
         "type": "package",
         "dependencies": {
@@ -7570,6 +7579,9 @@
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
+      "sqlite-net/1.6.292": {
+        "type": "package"
+      },
       "sqlite-net-pcl/1.8.116": {
         "type": "package",
         "dependencies": {
@@ -9927,6 +9939,9 @@
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
+      },
+      "sqlite-net/1.6.292": {
+        "type": "package"
       },
       "sqlite-net-pcl/1.8.116": {
         "type": "package",
@@ -13101,6 +13116,19 @@
         "useSharedDesignerContext.txt"
       ]
     },
+    "sqlite-net/1.6.292": {
+      "sha512": "/yXsrFYeUUYZiNELpicVG5fu0xJ0UdVgyZooqYws68NB9jLI5Ciievd96YOhtPdWY0O4F9l9XeE+446J/vnxiA==",
+      "type": "package",
+      "path": "sqlite-net/1.6.292",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "content/SQLite.cs",
+        "content/SQLiteAsync.cs",
+        "sqlite-net.1.6.292.nupkg.sha512",
+        "sqlite-net.nuspec"
+      ]
+    },
     "sqlite-net-pcl/1.8.116": {
       "sha512": "W0NuwAOVVAR9LP4eZwNBIrim1p3EN7t8iNfSHXEhtzKAd4YyItekoQ8NyWYs4faVSrN2KZr/P5u4hycCjKKexg==",
       "type": "package",
@@ -15288,6 +15316,7 @@
       "Microsoft.Maui.Controls >= 8.0.3",
       "Microsoft.Maui.Controls.Compatibility >= 8.0.3",
       "Microsoft.NET.ILLink.Tasks >= 8.0.0",
+      "sqlite-net >= 1.6.292",
       "sqlite-net-pcl >= 1.8.116"
     ]
   },
@@ -15365,6 +15394,10 @@
             "target": "Package",
             "version": "[8.0.0, )",
             "autoReferenced": true
+          },
+          "sqlite-net": {
+            "target": "Package",
+            "version": "[1.6.292, )"
           },
           "sqlite-net-pcl": {
             "target": "Package",

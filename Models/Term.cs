@@ -7,7 +7,7 @@ namespace CourseTracker.Models
     {
         [PrimaryKey, AutoIncrement]
         [Column("Term_Guid")]
-        public Guid Term_Guid
+        public string Term_Guid
         { get; set; }
 
         [Column("Term_Title")]

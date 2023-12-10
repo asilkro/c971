@@ -74,6 +74,10 @@
               "version": "[8.0.0, )",
               "autoReferenced": true
             },
+            "sqlite-net": {
+              "target": "Package",
+              "version": "[1.6.292, )"
+            },
             "sqlite-net-pcl": {
               "target": "Package",
               "version": "[1.8.116, )"

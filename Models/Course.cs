@@ -1,60 +1,139 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+using CourseTracker.Supplemental;
 using SQLite;
 
 namespace CourseTracker.Models
 {
-    [Table("Course")]
+    [Table("Courses")]
     public class Course
     {
+        #region Properties / Columns
 
         [PrimaryKey, NotNull]
-        [Column("Course_Guid")]
-        public Guid Course_Guid
-        { get; set; }
+        [Column("CourseId")] public string CourseId { get; set; }
 
-        [Column("Course_Id")]
-        public string Course_Id
-        { get; set; } = "Undefined";
+        [Column("Title")] public string Title { get; set; } = "Placeholder";
 
-        [Column("Course_Title")]
-        public string Course_Title
-        { get; set; } = "Placeholder";
+        [Column("StartDate")] public DateTime StartDate { get; set; } = DateTime.Today.Date;
 
-        [Column("Course_Start")]
-        public DateTime Course_Start
-        { get; set; } = DateTime.Today.Date;
+        [Column("EndDate")] public DateTime EndDate { get; set; } = DateTime.Today.AddDays(30);
 
-        [Column("Course_End")]
-        public DateTime Course_End
-        { get; set; } = DateTime.Today.AddDays(30);
+        [Column("Status")] public CourseStatuses Status { get; set; } = CourseStatuses.undefined;
 
-        [Column("Course_Status")]
-        public CourseStatuses Course_Status
-        { get; set; } = CourseStatuses.undefined;
+        [Column("InstructorName")] public string InstructorName { get; set; } = "Placeholder CI";
 
-        [Column("CI_Name")]
-        public string CI_Name
-        { get; set; } = "Placeholder CI";
+        [Column("InstructorEmail")] public string InstructorEmail { get; set; } = "placeholder@wgu.edu";
 
-        [Column("CI_Email")]
-        public string CI_Email
-        { get; set; } = "placeholder@wgu.edu";
+        [Column("InstructorPhone")] public string InstructorPhone { get; set; } = "555-555-1234";
 
-        [Column("CI_Phone")]
-        public string CI_Phone
-        { get; set; } = "555-555-1234";
-
-        public string Course_Notes
-        { get; set; } = "Placeholder Course Notes";
+        [Column("Notes")] public string Notes { get; set; } = "Placeholder Course Notes";
 
         public enum CourseStatuses
         {
             undefined,
             planned,
-            in_progress,
-            awaiting_evaluation,
+            inProgress,
+            awaitingEvaluation,
             completed,
             dropped,
+        }
+
+        #endregion
+
+        #region Methods / Validation
+
+        public void ValidateCourse()
+        {
+            if (string.IsNullOrEmpty(CourseId))
+            {
+                throw new ValidationException("CourseId cannot be null or empty");
+            }
+
+            if (string.IsNullOrEmpty(Title))
+            {
+                throw new ValidationException("Title cannot be null or empty");
+            }
+
+            if (StartDate > EndDate)
+            {
+                throw new ValidationException("StartDate cannot be after EndDate");
+            }
+
+            if (EndDate < StartDate)
+            {
+                throw new ValidationException("EndDate cannot be before StartDate");
+            }
+
+            if (string.IsNullOrEmpty(InstructorName))
+            {
+                throw new ValidationException("InstructorName cannot be null or empty");
+            }
+
+            if (string.IsNullOrEmpty(InstructorEmail))
+            {
+                throw new ValidationException("InstructorEmail cannot be null or empty");
+            }
+
+            if (string.IsNullOrEmpty(InstructorPhone))
+            {
+                throw new ValidationException("InstructorPhone cannot be null or empty");
+            }
+
+            if (string.IsNullOrEmpty(Notes))
+            {
+                throw new ValidationException("Notes cannot be null or empty");
+            }
+
+            if (!Helpers.EmailIsValid(InstructorEmail))
+            {
+                throw new ValidationException("InstructorEmail is not valid");
+            }
+        }
+
+        #endregion
+
+        #region Add/Remove/Update
+
+        public void CourseModification(string operation, Course courseBeingOperated)
+        {
+            switch (Helpers.WhatIsTheOperation(operation))
+            {
+                case "insert":
+                    InsertCourse(courseBeingOperated);
+                    break;
+                case "update":
+                    UpdateCourse(courseBeingOperated);
+                    break;
+                case "delete":
+                    DeleteCourse(courseBeingOperated);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(operation), operation, null);
+            }
+        }
+
+        private void InsertCourse(Course course)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void UpdateCourse(Course course)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void DeleteCourse(Course course)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        #endregion
+
+        private Task GetCourseByIdAsync(string courseId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
+using System.Net.Mail;
 using SQLitePCL;
+using static CourseTracker.Models.Course;
 
 namespace CourseTracker.Supplemental
 {
@@ -10,32 +12,38 @@ namespace CourseTracker.Supplemental
         private readonly char dot = '.';
         private readonly char space = ' ';
 
-        public bool EmailIsValid(string email)
+        public enum Operations
         {
-            var result = false || email.Contains(at) && email.Contains(dot) && !email.Contains(space);
-            return result;
+            insert,
+            update,
+            delete
         }
 
-        public bool InsertToDb()
-        {
-            var inserted = false;
+        public Operations OperationType { get; set; } //TODO: Can this be removed?
 
-            //TODO: Unimplemented!
-            return inserted;
+        public static string WhatIsTheOperation(string input)
+        {
+            
+            if (Enum.IsDefined(typeof(Operations), input))
+            {
+                var result = Enum.Parse<Operations>(input).ToString();
+                return result;
+            }
+            throw new ArgumentException("Invalid operation type"); //TODO: Make a unit test to verify this is infallible.
         }
-        public bool RemoveFromDb()
-        {
-            var removed = false;
-            //TODO: Unimplemented!
 
-            return removed;
-        }
-        public bool UpdateInDb()
-        {
-            var updated = false;
-            //TODO: Unimplemented!
 
-            return updated;
+        public static bool EmailIsValid(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public static EmailMessage MakeEmail(string to, string cc, string bcc, string subject, string body)
@@ -52,39 +60,5 @@ namespace CourseTracker.Supplemental
             return email;
         }
 
-        public static bool IsNullOrEmpty(string whatIsBeingChecked)
-        {
-            var result = false;
-
-            if (whatIsBeingChecked != null)
-            {
-                result = true;
-            }
-
-            return result;
-        }
-
-        public static bool CheckInput(string whatIsBeingChecked, string checkedAgainst)
-        {
-            var match = true;
-
-            switch (checkedAgainst)
-            {
-                case "email":
-                    //TODO: something
-                    break;
-
-                case "phone":
-                    //TODO:
-                    break;
-
-                case "some other condition":
-                    //TODO:
-                    break;
-
-            }
-
-            return match;
-        }
     }
 }
