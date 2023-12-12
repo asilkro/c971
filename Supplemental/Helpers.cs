@@ -45,20 +45,5 @@ namespace CourseTracker.Supplemental
                 return false;
             }
         }
-
-        public static EmailMessage MakeEmail(string to, string cc, string bcc, string subject, string body)
-        {
-            var email = new EmailMessage();
-            {
-                email.To.Add(to);
-                email.Cc.Add(cc);
-                email.Bcc.Add(bcc);
-                email.Subject = subject;
-                email.Body = body;
-            }
-
-            return email;
-        }
-
     }
 }

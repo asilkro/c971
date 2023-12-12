@@ -1,4 +1,7 @@
 ﻿using SQLite;
+using System;
+using System.ComponentModel.DataAnnotations;
+using CourseTracker.Supplemental;
 
 namespace CourseTracker.Models
 {
@@ -6,20 +9,90 @@ namespace CourseTracker.Models
     public class Term
     {
         [PrimaryKey, AutoIncrement]
-        [Column("Term_Guid")]
-        public string Term_Guid
+        [Column("TermId")]
+        public string TermId
         { get; set; }
 
-        [Column("Term_Title")]
-        public string Term_Title
+        [Column("TermName")]
+        public string TermName
         { get; set; } = "Undefined Term Title";
 
-        [Column("Term_Start")]
-        public DateTime Term_Start
+        [Column("TermStart")]
+        public DateTime TermStart
         { get; set; } = DateTime.Today;
 
-        [Column("Term_End")]
-        public DateTime Term_End
+        [Column("TermEnd")]
+        public DateTime TermEnd
         { get; set; } = DateTime.Today.AddDays(90);
+
+
+        public void ValidateTerm()
+        {
+            if (string.IsNullOrEmpty(TermName) || string.IsNullOrWhiteSpace(TermName))
+            {
+                throw new ValidationException("TermName cannot be null or empty");
+            }
+
+            if (TermStart > TermEnd)
+            {
+                throw new ValidationException("TermStart cannot be after TermEnd");
+            }
+        }
+
+        #region Constructors
+
+        public Term()
+        {
+        }
+
+        public Term(string termName, DateTime termStart, DateTime termEnd)
+        {
+            TermName = termName;
+            TermStart = termStart;
+            TermEnd = termEnd;
+        }
+
+        #endregion
+
+        #region Add/Remove/Update
+
+        public void TermModification(string operation, Term termBeingModified)
+        {
+            var db = Constants.GetAsyncConnection();
+            switch (Helpers.WhatIsTheOperation(operation))
+            {
+                case "insert":
+                    _ = InsertTerm(termBeingModified, db);
+                    break;
+                case "update":
+                    _ = UpdateTerm(termBeingModified, db);
+                    break;
+                case "delete":
+                    _ = DeleteTerm(termBeingModified, db);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(operation), operation, null);
+            }
+        }
+
+        private async Task InsertTerm(Term term, SQLiteAsyncConnection db) =>
+            await db.InsertAsync(term);
+        private async Task UpdateTerm(Term term, SQLiteAsyncConnection db) => 
+            await db.UpdateAsync(term);
+        private async Task DeleteTerm(Term term, SQLiteAsyncConnection db) =>
+            await db.DeleteAsync(term);
+
+        public async Task<List<Term>> GetTermsAsync()
+        {
+            var db = Constants.GetAsyncConnection();
+            return await db.Table<Term>().ToListAsync();
+        }
+
+        private async Task<Term> GetTermById(string termId, SQLiteAsyncConnection db)
+        {
+            return await db.Table<Term>().Where(t => t.TermId == termId).FirstOrDefaultAsync();
+        }
+
+        #endregion
     }
 }

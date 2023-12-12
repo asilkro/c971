@@ -78,45 +78,45 @@ namespace CourseTracker.Models
 
         #region Add/Remove/Update
 
-        public void CourseModification(string operation, Assessment assessmentBeingOperated)
+        public void AssessmentModification(string operation, Assessment assessmentBeingOperated)
         {
+            var db = Constants.GetAsyncConnection();
             switch (Helpers.WhatIsTheOperation(operation))
             {
                 case "insert":
-                    InsertAssessment(assessmentBeingOperated);
+                    _ = InsertAssessment(assessmentBeingOperated, db);
                     break;
                 case "update":
-                    UpdateAssessment(assessmentBeingOperated);
+                    _ = UpdateAssessment(assessmentBeingOperated, db);
                     break;
                 case "delete":
-                    DeleteAssessment(assessmentBeingOperated);
+                    _ = DeleteAssessment(assessmentBeingOperated, db);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(operation), operation, null);
             }
         }
 
-        private void InsertAssessment(Assessment assessment)
+        public async Task<List<Assessment>> GetAssessmentsAsync()
         {
-            throw new NotImplementedException();
+            var db = Constants.GetAsyncConnection();
+            return await db.Table<Assessment>().ToListAsync();
         }
 
-        private void UpdateAssessment(Assessment assessment)
-        {
-            throw new NotImplementedException();
-        }
+        private async Task InsertAssessment(Assessment assessment, SQLiteAsyncConnection db) =>
+            await db.InsertAsync(assessment);
+        
+        private async Task UpdateAssessment(Assessment assessment, SQLiteAsyncConnection db) => 
+            await db.UpdateAsync(assessment);
 
-        private void DeleteAssessment(Assessment assessment)
-        {
-            throw new NotImplementedException();
-        }
+        private async Task DeleteAssessment(Assessment assessment, SQLiteAsyncConnection db) =>
+            await db.DeleteAsync(assessment);
 
+        private async Task<Assessment> GetAssessmentById(string assessmentId, SQLiteAsyncConnection db)
+        {
+            return await db.Table<Assessment>().Where(a => a.AssessmentId == assessmentId).FirstOrDefaultAsync();
+        }
 
         #endregion
-
-        private Task GetInstructorByIdAsync(string courseId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

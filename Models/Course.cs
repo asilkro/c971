@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.Threading.Tasks;
 using CourseTracker.Supplemental;
 using SQLite;
 
@@ -97,43 +98,38 @@ namespace CourseTracker.Models
 
         public void CourseModification(string operation, Course courseBeingOperated)
         {
+            var db = Constants.GetAsyncConnection();
             switch (Helpers.WhatIsTheOperation(operation))
             {
                 case "insert":
-                    InsertCourse(courseBeingOperated);
+                    InsertCourse(courseBeingOperated, db);
                     break;
                 case "update":
-                    UpdateCourse(courseBeingOperated);
+                    UpdateCourse(courseBeingOperated, db);
                     break;
                 case "delete":
-                    DeleteCourse(courseBeingOperated);
+                    DeleteCourse(courseBeingOperated, db);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(operation), operation, null);
             }
         }
 
-        private void InsertCourse(Course course)
-        {
-            throw new NotImplementedException();
-        }
+        private async task InsertCourse(Course course, SQLiteAsyncConnection db) =>
+            await db.InsertAsync(course);
 
-        private void UpdateCourse(Course course)
-        {
-            throw new NotImplementedException();
-        }
+        private async task UpdateCourse(Course course, SQLiteAsyncConnection db) =>
+            await db.UpdateAsync(course);
 
-        private void DeleteCourse(Course course)
-        {
-            throw new NotImplementedException();
-        }
+        private async task DeleteCourse(Course course, SQLiteAsyncConnection db) =>
+            await db.DeleteAsync(course);
 
 
         #endregion
 
-        private Task GetCourseByIdAsync(string courseId)
+        private async Task<Course> GetCourseByIdAsync(string courseId, SQLiteAsyncConnection db)
         {
-            throw new NotImplementedException();
+            return await db.Table<Course>().Where(c => c.CourseId == courseId).FirstOrDefaultAsync();
         }
     }
 }

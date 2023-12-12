@@ -16,7 +16,8 @@ namespace CourseTracker.Models
         [Column("InstructorId")]
         public string InstructorId
         { get; set; }
-        //TODO: This shouldn't be used for anything, but it's here because the table needs a primary key.
+        //This shouldn't be used for anything, but it's here
+        //because the table needs a primary key.
 
         [Column("InstructorName")]
         public string InstructorName
@@ -71,45 +72,40 @@ namespace CourseTracker.Models
 
         #region Add/Remove/Update
 
-        public void CourseModification(string operation, Instructor instructorBeingOperated)
+        public void InstructorModification(string operation, Instructor instructorBeingOperated)
         {
+            var db = Constants.GetAsyncConnection();
             switch (Helpers.WhatIsTheOperation(operation))
             {
                 case "insert":
-                    InsertInstructor(instructorBeingOperated);
+                    _ = InsertInstructor(instructorBeingOperated, db);
                     break;
                 case "update":
-                    UpdateInstructor(instructorBeingOperated);
+                    _ = UpdateInstructor(instructorBeingOperated, db);
                     break;
                 case "delete":
-                    DeleteInstructor(instructorBeingOperated);
+                    _ = DeleteInstructor(instructorBeingOperated, db);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(operation), operation, null);
             }
         }
 
-        private void InsertInstructor(Instructor instructor)
-        {
-            throw new NotImplementedException();
-        }
+        private async task InsertInstructor(Instructor instructor, SQLiteAsyncConnection db) =>
+            await db.InsertAsync(instructor);
 
-        private void UpdateInstructor(Instructor instructor)
-        {
-            throw new NotImplementedException();
-        }
+        private async task UpdateInstructor(Instructor instructor, SQLiteAsyncConnection db) =>
+            await db.UpdateAsync(instructor);
 
-        private void DeleteInstructor(Instructor instructor)
-        {
-            throw new NotImplementedException();
-        }
+        private async task DeleteInstructor(Instructor instructor, SQLiteAsyncConnection db) =>
+            await db.DeleteAsync(instructor);
 
 
         #endregion
 
-        private Task GetInstructorByIdAsync(string courseId)
+        private async Task<Instructor> GetInstructorByIdAsync(string id, SQLiteAsyncConnection db)
         {
-            throw new NotImplementedException();
+            return await db.Table<Instructor>().Where(i => i.InstructorId == id).FirstOrDefaultAsync();
         }
     }
 }
