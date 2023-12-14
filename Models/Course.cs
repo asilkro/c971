@@ -102,26 +102,26 @@ namespace CourseTracker.Models
             switch (Helpers.WhatIsTheOperation(operation))
             {
                 case "insert":
-                    InsertCourse(courseBeingOperated, db);
+                    _ = InsertCourse(courseBeingOperated, db);
                     break;
                 case "update":
-                    UpdateCourse(courseBeingOperated, db);
+                    _ = UpdateCourse(courseBeingOperated, db);
                     break;
                 case "delete":
-                    DeleteCourse(courseBeingOperated, db);
+                    _ = DeleteCourse(courseBeingOperated, db);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(operation), operation, null);
             }
         }
 
-        private async task InsertCourse(Course course, SQLiteAsyncConnection db) =>
+        private async Task InsertCourse(Course course, SQLiteAsyncConnection db) =>
             await db.InsertAsync(course);
 
-        private async task UpdateCourse(Course course, SQLiteAsyncConnection db) =>
+        private async Task UpdateCourse(Course course, SQLiteAsyncConnection db) =>
             await db.UpdateAsync(course);
 
-        private async task DeleteCourse(Course course, SQLiteAsyncConnection db) =>
+        private async Task DeleteCourse(Course course, SQLiteAsyncConnection db) =>
             await db.DeleteAsync(course);
 
 

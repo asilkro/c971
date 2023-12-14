@@ -91,13 +91,13 @@ namespace CourseTracker.Models
             }
         }
 
-        private async task InsertInstructor(Instructor instructor, SQLiteAsyncConnection db) =>
+        private static async Task InsertInstructor(Instructor instructor, SQLiteAsyncConnection db) =>
             await db.InsertAsync(instructor);
 
-        private async task UpdateInstructor(Instructor instructor, SQLiteAsyncConnection db) =>
+        private static async Task UpdateInstructor(Instructor instructor, SQLiteAsyncConnection db) =>
             await db.UpdateAsync(instructor);
 
-        private async task DeleteInstructor(Instructor instructor, SQLiteAsyncConnection db) =>
+        private static async Task DeleteInstructor(Instructor instructor, SQLiteAsyncConnection db) =>
             await db.DeleteAsync(instructor);
 
 
