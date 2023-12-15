@@ -87,6 +87,22 @@
 	  <None Remove="Supplemental\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="ViewModels\" />
+	  <Compile Update="ViewModels\AssessmentView.xaml.cs">
+	    <DependentUpon>AssessmentView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ViewModels\CourseView.xaml.cs">
+	    <DependentUpon>CourseView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ViewModels\InstructorView.xaml.cs">
+	    <DependentUpon>InstructorView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ViewModels\TermView.xaml.cs">
+	    <DependentUpon>TermView.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <MauiXaml Update="ViewModels\InstructorView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 </Project>

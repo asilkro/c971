@@ -10,7 +10,8 @@ namespace CourseTracker.Models
         public enum AssessmentType
         {
             PerformanceAssessment,
-            ObjectiveAssessment
+            ObjectiveAssessment,
+            undefined
         }
 
         [PrimaryKey, AutoIncrement]
