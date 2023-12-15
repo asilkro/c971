@@ -87,6 +87,9 @@
 	  <None Remove="Supplemental\" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Compile Update="ContentPages\Course.xaml.cs">
+	    <DependentUpon>Course.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="ViewModels\AssessmentView.xaml.cs">
 	    <DependentUpon>AssessmentView.xaml</DependentUpon>
 	  </Compile>
@@ -104,5 +107,8 @@
 	  <MauiXaml Update="ViewModels\InstructorView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="ContentPages\" />
 	</ItemGroup>
 </Project>

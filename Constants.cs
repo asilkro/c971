@@ -30,13 +30,18 @@ namespace CourseTracker
         // This is the platform-specific path(?) to the database on the device and is used by the SQLiteConnection object
         // to connect to the database. It may also be just a cache directory, but I'm not sure.
 
-        public static async Task InitializeDatabaseAsync()
+        private static async Task InitializeDatabaseAsync()
         {
             var asyncConnection = GetAsyncConnection();
-            await asyncConnection.CreateTableAsync<Term>();
-            await asyncConnection.CreateTableAsync<Course>();
-            await asyncConnection.CreateTableAsync<Assessment>();
-            await asyncConnection.CreateTableAsync<Instructor>();
+            await SetupTables(asyncConnection);
+        }
+
+        private static async Task SetupTables(SQLiteAsyncConnection connection)
+        {
+            await connection.CreateTableAsync<Term>();
+            await connection.CreateTableAsync<Course>();
+            await connection.CreateTableAsync<Assessment>();
+            await connection.CreateTableAsync<Instructor>();
         }
 
         #endregion
@@ -48,11 +53,17 @@ namespace CourseTracker
             return new SQLiteAsyncConnection(DatabasePath, Flags);
         }
 
-
+        //TODO: Do I need an interface for this or can I just use the method above?
+        public interface ISqLiteDb
+        {
+            SQLiteAsyncConnection GetAsyncConnection();
+        }
 
         #endregion
 
         #region Utility methods
+
+        //TODO: Do I need anything here?
 
         #endregion
     }

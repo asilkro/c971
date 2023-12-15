@@ -15,6 +15,15 @@ public partial class CourseView : ContentView
         set => SetValue(CourseIdProperty, value);
     }
 
+    public static readonly BindableProperty TermIdProperty =
+        BindableProperty.Create(nameof(TermId), typeof(string), typeof(CourseView), string.Empty);
+
+    public string TermId
+    {
+        get => (string)GetValue(TermIdProperty);
+        set => SetValue(TermIdProperty, value);
+    }
+
     public static readonly BindableProperty TitleProperty =
         BindableProperty.Create(nameof(Title), typeof(string), typeof(CourseView), string.Empty);
 

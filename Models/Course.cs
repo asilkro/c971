@@ -14,6 +14,8 @@ namespace CourseTracker.Models
         [PrimaryKey, NotNull]
         [Column("CourseId")] public string CourseId { get; set; }
 
+        [Column("TermId")] public string TermId { get; set; } = "Placeholder";
+
         [Column("Title")] public string Title { get; set; } = "Placeholder";
 
         [Column("StartDate")] public DateTime StartDate { get; set; } = DateTime.Today.Date;
