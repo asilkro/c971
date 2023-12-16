@@ -17,6 +17,7 @@ public partial class Instructor : ContentPage
         InitializeComponent();
         BindingContext = new InstructorView();
         var db = _conn.GetAsyncConnection();
+        //TODO: Finish constructor
     }
 
     public async Task AddInstructor(Models.Course course)
