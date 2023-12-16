@@ -87,8 +87,17 @@
 	  <None Remove="Supplemental\" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Compile Update="ContentPages\Assessment.xaml.cs">
+	    <DependentUpon>Assessment.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="ContentPages\Course.xaml.cs">
 	    <DependentUpon>Course.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ContentPages\Instructor.xaml.cs">
+	    <DependentUpon>Instructor.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ContentPages\Term.xaml.cs">
+	    <DependentUpon>Term.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="ViewModels\AssessmentView.xaml.cs">
 	    <DependentUpon>AssessmentView.xaml</DependentUpon>
@@ -104,11 +113,17 @@
 	  </Compile>
 	</ItemGroup>
 	<ItemGroup>
+	  <MauiXaml Update="ContentPages\Assessment.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\Instructor.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\Term.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ViewModels\InstructorView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="ContentPages\" />
 	</ItemGroup>
 </Project>
