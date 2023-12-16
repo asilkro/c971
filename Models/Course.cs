@@ -100,7 +100,8 @@ namespace CourseTracker.Models
 
         public void CourseModification(string operation, Course courseBeingOperated)
         {
-            var db = Constants.GetAsyncConnection();
+            var conn = new Connection();
+            var db = conn.GetAsyncConnection();
             switch (Helpers.WhatIsTheOperation(operation))
             {
                 case "insert":

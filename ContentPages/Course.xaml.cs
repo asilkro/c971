@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CourseTracker.Models;
+using CourseTracker.Supplemental;
 using CourseTracker.ViewModels;
 using SQLite;
 
@@ -18,15 +19,17 @@ public partial class Course : ContentPage
     {
         InitializeComponent();
         BindingContext = new CourseView();
-        _conn = DependencyService.Get<Constants.ISqLiteDb>().GetAsyncConnection();
+        var conn = new Connection();
+        var db = conn.GetAsyncConnection();
     }
 
     public async Task AddCourse(Term term)
     {
         InitializeComponent();
         BindingContext = new CourseView();
-        _conn = DependencyService.Get<Constants.ISqLiteDb>().GetAsyncConnection();
-        await _conn.InsertAsync();
+        var conn = new Connection();
+        var db = conn.GetAsyncConnection();
+        await db.InsertAsync(somecourse());
         ((CourseView)BindingContext).TermId = term.TermId;
     }
 
@@ -34,8 +37,9 @@ public partial class Course : ContentPage
     {
         InitializeComponent();
         BindingContext = new CourseView();
-        _conn = DependencyService.Get<Constants.ISqLiteDb>().GetAsyncConnection();
-        await _conn.UpdateAsync(SomeGenerateCourse());
+        var conn = new Connection();
+        var db = conn.GetAsyncConnection();
+        await db.UpdateAsync(somecourse());
         ((CourseView)BindingContext).TermId = term.TermId;
     }
 
@@ -43,8 +47,9 @@ public partial class Course : ContentPage
     {
         InitializeComponent();
         BindingContext = new CourseView();
-        _conn = DependencyService.Get<Constants.ISqLiteDb>().GetAsyncConnection();
-        await _conn.DeleteAsync(MakeCourse());
+        var conn = new Connection();
+        var db = conn.GetAsyncConnection();
+        await db.DeleteAsync(somecourse());
         ((CourseView)BindingContext).TermId = term.TermId;
     }
 

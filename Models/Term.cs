@@ -58,7 +58,8 @@ namespace CourseTracker.Models
 
         public void TermModification(string operation, Term termBeingModified)
         {
-            var db = Constants.GetAsyncConnection();
+            var conn = new Connection();
+            var db = conn.GetAsyncConnection();
             switch (Helpers.WhatIsTheOperation(operation))
             {
                 case "insert":
@@ -84,7 +85,8 @@ namespace CourseTracker.Models
 
         public async Task<List<Term>> GetTermsAsync()
         {
-            var db = Constants.GetAsyncConnection();
+            var _ = new Connection();
+            var db = _.GetAsyncConnection();
             return await db.Table<Term>().ToListAsync();
         }
 

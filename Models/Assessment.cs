@@ -81,7 +81,8 @@ namespace CourseTracker.Models
 
         public void AssessmentModification(string operation, Assessment assessmentBeingOperated)
         {
-            var db = Constants.GetAsyncConnection();
+            var conn = new Connection();
+            var db = conn.GetAsyncConnection();
             switch (Helpers.WhatIsTheOperation(operation))
             {
                 case "insert":
@@ -100,7 +101,7 @@ namespace CourseTracker.Models
 
         public async Task<List<Assessment>> GetAssessmentsAsync()
         {
-            var db = Constants.GetAsyncConnection();
+            var db = new Connection().GetAsyncConnection();
             return await db.Table<Assessment>().ToListAsync();
         }
 

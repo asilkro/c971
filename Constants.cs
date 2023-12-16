@@ -1,4 +1,5 @@
 ﻿using CourseTracker.Models;
+using CourseTracker.Supplemental;
 using SQLite;
 
 
@@ -12,7 +13,7 @@ namespace CourseTracker
         public const SQLite.SQLiteOpenFlags Flags =
             // Create our SQLite DB if it doesn't exist
             SQLite.SQLiteOpenFlags.Create |
-            // Set multi-threaded DB access for performance
+            // Set multi-thread DB access for performance
             SQLite.SQLiteOpenFlags.SharedCache |
             // We need to be able to read from and write to DB
             SQLite.SQLiteOpenFlags.ReadWrite |
@@ -32,39 +33,20 @@ namespace CourseTracker
 
         private static async Task InitializeDatabaseAsync()
         {
-            var asyncConnection = GetAsyncConnection();
-            await SetupTables(asyncConnection);
+            var asyncConnection = new Connection();
+            var db = asyncConnection.GetAsyncConnection();
+            await SetupTables(db);
         }
 
-        private static async Task SetupTables(SQLiteAsyncConnection connection)
+        private static async Task SetupTables(SQLiteAsyncConnection db)
         {
-            await connection.CreateTableAsync<Term>();
-            await connection.CreateTableAsync<Course>();
-            await connection.CreateTableAsync<Assessment>();
-            await connection.CreateTableAsync<Instructor>();
+            await db.CreateTableAsync<Term>();
+            await db.CreateTableAsync<Course>();
+            await db.CreateTableAsync<Assessment>();
+            await db.CreateTableAsync<Instructor>();
         }
 
         #endregion
 
-        #region Database connection
-
-        public static SQLiteAsyncConnection GetAsyncConnection()
-        {
-            return new SQLiteAsyncConnection(DatabasePath, Flags);
-        }
-
-        //TODO: Do I need an interface for this or can I just use the method above?
-        public interface ISqLiteDb
-        {
-            SQLiteAsyncConnection GetAsyncConnection();
-        }
-
-        #endregion
-
-        #region Utility methods
-
-        //TODO: Do I need anything here?
-
-        #endregion
     }
 }
