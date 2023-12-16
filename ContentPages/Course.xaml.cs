@@ -15,6 +15,7 @@ public partial class Course : ContentPage
         InitializeComponent();
         BindingContext = new CourseView();
         var db = _conn.GetAsyncConnection();
+        //TODO: Finish constructor
     }
 
     public async Task AddCourse(Models.Term term)

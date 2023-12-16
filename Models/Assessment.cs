@@ -25,7 +25,7 @@ namespace CourseTracker.Models
 
         [Column("AssessmentType")]
         public AssessmentType Type
-        { get; set; }
+        { get; set; } = AssessmentType.undefined;
 
         [Column("AssessmentStart")]
         public DateTime StartDate

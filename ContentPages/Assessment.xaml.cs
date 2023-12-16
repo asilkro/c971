@@ -19,6 +19,7 @@ public partial class Assessment : ContentPage
         InitializeComponent();
         BindingContext = new AssessmentView();
         var db = _conn.GetAsyncConnection();
+        //TODO: Finish constructor
     }
 
 
