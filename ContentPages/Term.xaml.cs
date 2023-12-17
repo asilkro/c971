@@ -17,6 +17,7 @@ public partial class Term : ContentPage
 
     public Term()
     {
+        _term = new Models.Term();
         InitializeComponent();
         BindingContext = new TermView();
         var db = _conn.GetAsyncConnection();
@@ -50,21 +51,22 @@ public partial class Term : ContentPage
         ((TermView) BindingContext).TermId = course.TermId;
     }
 
-    private async Task AddTerm_OnButtonClicked(object sender, EventArgs e)
+    private async void AddTerm_OnButtonClicked(object sender, EventArgs e)
     {
         _ = AddTerm(_course); //TODO: Make sure this can actually bind to a course
         await Navigation.PopAsync();
     }
 
-    private async Task UpdateTerm_OnButtonClicked(object sender, EventArgs e)
+    private async void UpdateTerm_OnButtonClicked(object sender, EventArgs e)
     {
         _ = UpdateTerm(_course); //TODO: Make sure this can actually bind to a course
         await Navigation.PopAsync();
     }
 
-    private async Task DeleteTerm_OnButtonClicked(object sender, EventArgs e)
+    private async void DeleteTerm_OnButtonClicked(object sender, EventArgs e)
     {
         _ = DeleteTerm(_course); //TODO: Make sure this can actually bind to a course
         await Navigation.PopAsync();
     }
+
 }

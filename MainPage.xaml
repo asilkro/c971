@@ -3,15 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CourseTracker.MainPage" Visual="">
 
-    <FlexLayout Direction="Column"
-                AlignItems="Center"
-                JustifyContent="SpaceEvenly">
-        <Label Text="First Label in FlexLayout" />
-        <Button Text="This is a button" 
-                Handler="ButtonClick"/>
-        <Label Text="Another Label in FlexLayout" />
-
+    <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="SpaceEvenly" 
+                AlignContent="SpaceEvenly" class="" Margin="5" Wrap="Wrap" HorizontalOptions="CenterAndExpand" >
+        <Label Text="Main Menu" FontSize="48" FlexLayout.AlignSelf="Auto"  />
+        <Line IsVisible="True" IsEnabled="True"/>
+        <Button Text="Terms" IsEnabled="True" Clicked="TermsButton_Clicked" FlexLayout.AlignSelf="Auto" />
+        <Line IsVisible="True" FlexLayout.AlignSelf="Center"/>
+        <Button Text="Courses" IsEnabled="True" Clicked="CoursesButton_Clicked" FlexLayout.AlignSelf="Auto"/>
+        <Button Text="Assessments" IsEnabled="True" Clicked="AssessmentsButton_Clicked" FlexLayout.AlignSelf="Auto"/>
+        <Button Text="Instructors" IsEnabled="True" Clicked="InstructorsButton_Clicked" FlexLayout.AlignSelf="Auto"/>
     </FlexLayout>
+
 
 </ContentPage>
 

@@ -47,19 +47,19 @@ public partial class Instructor : ContentPage
         ((InstructorView)BindingContext).InstructorName = course.InstructorName;
     }
 
-    private async Task AddInstructor_OnButtonClicked(object sender, EventArgs e)
+    private async void AddInstructor_OnButtonClicked(object sender, EventArgs e)
     {
         _ = AddInstructor(_course); //TODO: Make sure this can actually bind to a course
         await Navigation.PopAsync();
     }
 
-    private async Task UpdateInstructor_OnButtonClicked(object sender, EventArgs e)
+    private async void UpdateInstructor_OnButtonClicked(object sender, EventArgs e)
     {
         _ = UpdateInstructor(_course); //TODO: Make sure this can actually bind to a course
         await Navigation.PopAsync();
     }
 
-    private async Task DeleteInstructor_OnButtonClicked(object sender, EventArgs e)
+    private async void DeleteInstructor_OnButtonClicked(object sender, EventArgs e)
     {
         _ = DeleteInstructor(_course); //TODO: Make sure this can actually bind to a course
         await Navigation.PopAsync();

@@ -45,19 +45,19 @@ public partial class Course : ContentPage
         ((CourseView)BindingContext).TermId = term.TermId;
     }
 
-    private async Task AddCourse_OnButtonClicked(object sender, EventArgs e)
+    private async void AddCourse_OnButtonClicked(object sender, EventArgs e)
     {
         _ = AddCourse(_term); //TODO: Make sure this can actually bind to a term
         await Navigation.PopAsync();
     }
 
-    private async Task UpdateCourse_OnButtonClicked(object sender, EventArgs e)
+    private async void UpdateCourse_OnButtonClicked(object sender, EventArgs e)
     {
         _ = UpdateCourse(_term); //TODO: Make sure this can actually bind to a term
         await Navigation.PopAsync();
     }
 
-    private async Task DeleteCourse_OnButtonClicked(object sender, EventArgs e)
+    private async void DeleteCourse_OnButtonClicked(object sender, EventArgs e)
     {
         _ = DeleteCourse(_term); //TODO: Make sure this can actually bind to a term
         await Navigation.PopAsync();

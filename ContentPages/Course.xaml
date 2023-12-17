@@ -4,6 +4,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CourseTracker.ContentPages.Course">
     <ContentPage.Content>
-
+		<StackLayout BindingContext="Course">
+            <EntryCell Label="Course Title" x:Name="CourseTitle"/>
+			<Label Text="Course Start Date" />
+			<DatePicker x:Name="CourseStartDate" />
+			<Label Text="Course End Date" />
+			<DatePicker x:Name="CourseEndDate" />
+			<Label Text="Course Status" />
+			<Picker x:Name="CourseStatusPicker" BindingContext="CourseStatuses"></Picker>
+			<Label Text="Course Instructor" />
+			<EntryCell Label="Course Instructor" x:Name="Instructor"/>
+			<EntryCell Label="Notes" x:Name="Notes" />
+			<Button Text="Add Course" Clicked="AddCourse_OnButtonClicked" />
+			<Button Text="Update Course" Clicked="UpdateCourse_OnButtonClicked" />
+			<Button Text="Delete Course" Clicked="DeleteCourse_OnButtonClicked" />
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

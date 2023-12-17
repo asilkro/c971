@@ -4,6 +4,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CourseTracker.ContentPages.Term">
     <ContentPage.Content>
-        
-    </ContentPage.Content>
+		<StackLayout>
+			<Label Text="Term Name" />
+			<Entry x:Name="TermName" />
+			<Label Text="Start Date" />
+			<DatePicker x:Name="StartDate" />
+			<Label Text="End Date" />
+			<DatePicker x:Name="EndDate" />
+			<Button Text="Add Term" Clicked="AddTerm_OnButtonClicked" />
+            <Button Text="Update Term" Clicked="UpdateTerm_OnButtonClicked" />
+			<Button Text="Delete Term" Clicked="DeleteTerm_OnButtonClicked" />
+
+		</StackLayout>
+		</ContentPage.Content>
 </ContentPage>
