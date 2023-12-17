@@ -1,10 +1,9 @@
-﻿using CourseTracker.Models;
-using CourseTracker.Supplemental;
+﻿using CourseTracker.Supplemental;
 using CourseTracker.ViewModels;
 
 namespace CourseTracker.ContentPages;
 
-public partial class Course : ContentPage
+public partial class Course
 {
     private Connection _conn;
     private Models.Course _course;

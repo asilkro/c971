@@ -1,6 +1,5 @@
 ﻿using Android.App;
 using Android.Runtime;
-using CourseTracker;
 
 namespace CourseTracker.Platforms.Android;
 

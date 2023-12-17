@@ -1,12 +1,9 @@
-﻿using CourseTracker.Models;
-using CourseTracker.Supplemental;
+﻿using CourseTracker.Supplemental;
 using CourseTracker.ViewModels;
-using SQLite;
-using static Android.Graphics.ImageDecoder;
 
 namespace CourseTracker.ContentPages;
 
-public partial class Instructor : ContentPage
+public partial class Instructor
 {
     private Connection _conn;
     private Models.Instructor _instructor;

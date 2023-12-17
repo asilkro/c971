@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 using CourseTracker.Supplemental;
 using SQLite;
 
@@ -30,6 +25,10 @@ namespace CourseTracker.Models
         [Column("InstructorPhone")]
         public string InstructorPhone
         { get; set; } = "555-555-1234";
+
+        [Column("CourseId")]
+        public string CourseId
+        { get; set; } = "Undefined Course ID";
 
         public void ValidateInstructor()
         {

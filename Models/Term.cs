@@ -1,7 +1,6 @@
-﻿using SQLite;
-using System;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using CourseTracker.Supplemental;
+using SQLite;
 
 namespace CourseTracker.Models
 {
@@ -78,7 +77,7 @@ namespace CourseTracker.Models
 
         private async Task InsertTerm(Term term, SQLiteAsyncConnection db) =>
             await db.InsertAsync(term);
-        private async Task UpdateTerm(Term term, SQLiteAsyncConnection db) => 
+        private async Task UpdateTerm(Term term, SQLiteAsyncConnection db) =>
             await db.UpdateAsync(term);
         private async Task DeleteTerm(Term term, SQLiteAsyncConnection db) =>
             await db.DeleteAsync(term);

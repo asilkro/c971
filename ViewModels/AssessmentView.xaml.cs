@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CourseTracker.Models;
+﻿using CourseTracker.Models;
 
 namespace CourseTracker.ViewModels;
 
@@ -23,7 +18,7 @@ public partial class AssessmentView : ContentView
 
     public string AssessmentName
     {
-        get => (string)GetValue(AssessmentNameProperty); 
+        get => (string)GetValue(AssessmentNameProperty);
         set => SetValue(AssessmentNameProperty, value);
     }
 

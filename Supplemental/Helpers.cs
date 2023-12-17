@@ -1,10 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Net.Mail;
-using SQLitePCL;
-using static CourseTracker.Models.Course;
-
-namespace CourseTracker.Supplemental
+﻿namespace CourseTracker.Supplemental
 {
     public class Helpers
     {
@@ -23,7 +17,7 @@ namespace CourseTracker.Supplemental
 
         public static string WhatIsTheOperation(string input)
         {
-            
+
             if (Enum.IsDefined(typeof(Operations), input))
             {
                 var result = Enum.Parse<Operations>(input).ToString();

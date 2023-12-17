@@ -1,14 +1,9 @@
-﻿using CourseTracker.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CourseTracker.Supplemental;
+﻿using CourseTracker.Supplemental;
+using CourseTracker.ViewModels;
 
 namespace CourseTracker.ContentPages;
 
-public partial class Assessment : ContentPage
+public partial class Assessment
 {
     private Connection _conn;
     private Models.Assessment _assessment;

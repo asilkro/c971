@@ -107,8 +107,8 @@ namespace CourseTracker.Models
 
         private async Task InsertAssessment(Assessment assessment, SQLiteAsyncConnection db) =>
             await db.InsertAsync(assessment);
-        
-        private async Task UpdateAssessment(Assessment assessment, SQLiteAsyncConnection db) => 
+
+        private async Task UpdateAssessment(Assessment assessment, SQLiteAsyncConnection db) =>
             await db.UpdateAsync(assessment);
 
         private async Task DeleteAssessment(Assessment assessment, SQLiteAsyncConnection db) =>

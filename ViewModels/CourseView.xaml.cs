@@ -92,7 +92,7 @@ public partial class CourseView : ContentView
 
     public string Notes
     {
-        get => (string)GetValue(NotesProperty); 
+        get => (string)GetValue(NotesProperty);
         set => SetValue(NotesProperty, value);
     }
     #endregion

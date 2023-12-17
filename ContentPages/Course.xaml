@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:Models="clr-namespace:CourseTracker.Models"
+             xmlns:models="clr-namespace:CourseTracker.Models"
              x:Class="CourseTracker.ContentPages.Course">
 		<StackLayout BindingContext="Course">
 			<Label Text="Course Start Date" />
@@ -12,11 +12,11 @@
 			<Label Text="Course Status" />
 			<Picker x:Name="CourseStatusPicker" BindingContext="CourseStatuses">
 				<Picker.ItemsSource>
-				<Models:Course Status="awaitingEvaluation"/>
-                <Models:Course Status="completed"/>
-                <Models:Course Status="inProgress"/>
-                <Models:Course Status="planned"/>
-                <Models:Course Status="dropped"/>
+				<models:Course Status="awaitingEvaluation"/>
+                <models:Course Status="completed"/>
+                <models:Course Status="inProgress"/>
+                <models:Course Status="planned"/>
+                <models:Course Status="dropped"/>
             </Picker.ItemsSource>
 </Picker>
 			<Label Text="Course Instructor" />
