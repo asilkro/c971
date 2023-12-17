@@ -11,13 +11,13 @@ namespace CourseTracker.Models
         {
             PerformanceAssessment,
             ObjectiveAssessment,
-            undefined
+            Undefined
         }
 
         [PrimaryKey, AutoIncrement]
         [Column("AssessmentId")]
         public string AssessmentId
-        { get; set; }
+        { get; private set; }
 
         [Column("AssessmentTitle")]
         public string AssessmentTitle
@@ -25,7 +25,7 @@ namespace CourseTracker.Models
 
         [Column("AssessmentType")]
         public AssessmentType Type
-        { get; set; } = AssessmentType.undefined;
+        { get; set; } = AssessmentType.Undefined;
 
         [Column("AssessmentStart")]
         public DateTime StartDate

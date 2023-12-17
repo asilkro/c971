@@ -4,13 +4,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CourseTracker.ContentPages.Term">
     <ContentPage.Content>
-		<StackLayout>
-			<Label Text="Term Name" />
-			<Entry x:Name="TermName" />
+		<StackLayout Orientation="Vertical">
+            <EntryCell Label="Term Name" x:Name="TermName"/>
 			<Label Text="Start Date" />
-			<DatePicker x:Name="StartDate" />
+			<DatePicker x:Name="StartDate" MinimumDate="2001-01-01" MaximumDate="3001-01-01" />
 			<Label Text="End Date" />
-			<DatePicker x:Name="EndDate" />
+            <DatePicker x:Name="EndDate" MinimumDate="2001-01-01" MaximumDate="3001-01-01"/>
 			<Button Text="Add Term" Clicked="AddTerm_OnButtonClicked" />
             <Button Text="Update Term" Clicked="UpdateTerm_OnButtonClicked" />
 			<Button Text="Delete Term" Clicked="DeleteTerm_OnButtonClicked" />

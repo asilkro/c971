@@ -5,12 +5,9 @@
              x:Class="CourseTracker.ContentPages.Instructor">
     <ContentPage.Content>
         <StackLayout BindingContext="Instructor">
-            <Label Text="Instructor Name"/>
-			<Entry x:Name="InstructorName"/>
-			<Label Text="Instructor Email"/>
-			<Entry x:Name="InstructorEmail"/>
-			<Label Text="Instructor Phone"/>
-			<Entry x:Name="InstructorPhone"/>
+            <EntryCell Text="Instructor Name" x:Name="InstructorName"/>
+			<EntryCell Text="Instructor Email" x:Name="InstructorEmail"/>
+			<EntryCell Text="Instructor Phone" x:Name="InstructorPhone"/>
 			<Button Text="Add Instructor" Clicked="AddInstructor_OnButtonClicked"/>
 			<Button Text="Update Instructor" Clicked="UpdateInstructor_OnButtonClicked"/>
 			<Button Text="Delete Instructor" Clicked="DeleteInstructor_OnButtonClicked"/>

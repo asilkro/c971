@@ -2,11 +2,10 @@
 
 public partial class MainPage : ContentPage
 {
-
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    public MainPage()
+    {
+        InitializeComponent();
+    }
 
     private void TermsButton_Clicked(object sender, EventArgs e)
     {

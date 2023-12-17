@@ -28,7 +28,7 @@ public partial class AssessmentView : ContentView
     }
 
     public static readonly BindableProperty AssessmentTypeProperty =
-        BindableProperty.Create(nameof(AssessmentType), typeof(Assessment.AssessmentType), typeof(AssessmentView), Assessment.AssessmentType.undefined);
+        BindableProperty.Create(nameof(AssessmentType), typeof(Assessment.AssessmentType), typeof(AssessmentView), Assessment.AssessmentType.Undefined);
 
     public Assessment.AssessmentType AssessmentType
     {
