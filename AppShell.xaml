@@ -4,7 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:courseTracker="clr-namespace:CourseTracker"
-    xmlns:contentPages="clr-namespace:CourseTracker.ContentPages" FlyoutBehavior="Flyout">
+    xmlns:contentPages="clr-namespace:CourseTracker.ContentPages"
+    xmlns:courseContents="clr-namespace:CourseTracker.ContentPages.CourseContents"
+    FlyoutBehavior="Flyout">
 
     <ShellContent
         Title="Home"
@@ -12,7 +14,7 @@
         Route="MainPage" />
     <ShellContent
         Title="Courses"
-        ContentTemplate="{DataTemplate contentPages:Course}"
+        ContentTemplate="{DataTemplate courseContents:Course}"
         Route="//ContentPages/Course" />
     <ShellContent
         Title="Assessments"

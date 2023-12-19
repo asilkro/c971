@@ -87,16 +87,22 @@
 	  <None Remove="Supplemental\" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Compile Update="ContentPages\Assessment.xaml.cs">
+	  <Compile Update="ContentPages\AssessmentContents\Assessment.xaml.cs">
 	    <DependentUpon>Assessment.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="ContentPages\Course.xaml.cs">
+	  <Compile Update="ContentPages\AssessmentContents\AssessmentCreateModify.xaml.cs">
+	    <DependentUpon>AssessmentCreateModify.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ContentPages\CourseContents\Course.xaml.cs">
 	    <DependentUpon>Course.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="ContentPages\Instructor.xaml.cs">
+	  <Compile Update="ContentPages\CourseContents\CourseCreateModify.xaml.cs">
+	    <DependentUpon>CourseCreateModify.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="ContentPages\InstructorContents\Instructor.xaml.cs">
 	    <DependentUpon>Instructor.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="ContentPages\Term.xaml.cs">
+	  <Compile Update="ContentPages\TermContents\Term.xaml.cs">
 	    <DependentUpon>Term.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="ViewModels\AssessmentView.xaml.cs">
@@ -113,13 +119,19 @@
 	  </Compile>
 	</ItemGroup>
 	<ItemGroup>
-	  <MauiXaml Update="ContentPages\Assessment.xaml">
+	  <MauiXaml Update="ContentPages\AssessmentContents\Assessment.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ContentPages\Instructor.xaml">
+	  <MauiXaml Update="ContentPages\AssessmentContents\AssessmentCreateModify.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="ContentPages\Term.xaml">
+	  <MauiXaml Update="ContentPages\CourseContents\CourseCreateModify.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\InstructorContents\Instructor.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\TermContents\Term.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ViewModels\InstructorView.xaml">

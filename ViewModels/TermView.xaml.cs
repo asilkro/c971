@@ -2,7 +2,7 @@
 
 namespace CourseTracker.ViewModels;
 
-public partial class TermView : ContentView
+public partial class TermView
 {
     public static readonly BindableProperty TermIdProperty =
         BindableProperty.Create(nameof(TermId), typeof(string), typeof(TermView), string.Empty);
@@ -49,15 +49,6 @@ public partial class TermView : ContentView
         set => SetValue(CoursesProperty, value);
     }
 
-    public static readonly BindableProperty AssessmentsProperty =
-        BindableProperty.Create(nameof(Assessments), typeof(List<Assessment>), typeof(TermView), new List<Assessment>());
-
-    public List<Assessment> Assessments
-    {
-        get => (List<Assessment>)GetValue(AssessmentsProperty);
-        set => SetValue(AssessmentsProperty, value);
-    }
-
     public static readonly BindableProperty NotesProperty =
         BindableProperty.Create(nameof(Notes), typeof(string), typeof(TermView), string.Empty);
 
@@ -67,9 +58,19 @@ public partial class TermView : ContentView
         set => SetValue(NotesProperty, value);
     }
 
-
     public TermView()
     {
         InitializeComponent();
+    }
+
+    public TermView(Term term)
+    {
+        InitializeComponent();
+        TermId = term.TermId;
+        TermName = term.TermName;
+        StartDate = term.StartDate;
+        EndDate = term.EndDate;
+        Courses = term.Courses;
+        Notes = term.Notes;
     }
 }

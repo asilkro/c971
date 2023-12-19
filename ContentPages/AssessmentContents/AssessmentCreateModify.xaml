@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CourseTracker.ContentPages.AssessmentContents.AssessmentCreateModify">
+    <ContentPage.Content>
+        <StackLayout>
+            <EntryCell Label ="Assessment Id" x:Name="AssessmentId"  Text="{Binding AssessmentId}" />
+            <EntryCell Label ="Assessment Name" x:Name="AssessmentName" Text="{Binding AssessmentName}" />
+            <EntryCell Label ="Assessment Type" x:Name="AssessmentType" Text="{Binding AssessmentType}" />
+            <Label x:Name="StartLabel" Text="Assessment Start Date" />
+            <DatePicker x:Name="AssessmentStartDate" Date="{Binding AssessmentStartDate}" />
+            <Label x:Name="EndLabel" Text="Assessment End Date" />
+            <DatePicker x:Name="AssessmentEndDate" Date="{Binding AssessmentEndDate}" />
+            <EntryCell Label ="Course Id" x:Name="CourseId" Text="{Binding CourseId}"/>
+            <Button Text="Save" x:Name="Save" Command="{Binding SaveCommand}" />
+            <Button Text="Cancel" x:Name="Cancel" Command="{Binding CancelCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

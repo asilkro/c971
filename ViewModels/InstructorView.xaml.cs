@@ -1,6 +1,6 @@
 ﻿namespace CourseTracker.ViewModels;
 
-public partial class InstructorView : ContentView
+public partial class InstructorView
 {
     public static readonly BindableProperty InstructorIdProperty =
         BindableProperty.Create(nameof(InstructorId), typeof(string), typeof(InstructorView), string.Empty);
@@ -41,5 +41,14 @@ public partial class InstructorView : ContentView
     public InstructorView()
     {
         InitializeComponent();
+    }
+
+    public InstructorView(Models.Instructor instructor)
+    {
+        InitializeComponent();
+        InstructorId = instructor.InstructorId;
+        InstructorName = instructor.InstructorName;
+        InstructorEmail = instructor.InstructorEmail;
+        InstructorPhone = instructor.InstructorPhone;
     }
 }

@@ -7,12 +7,6 @@
     <ContentPage.Content>
         <StackLayout Orientation="Horizontal">
             <EntryCell Text="Assessment Title" x:Name="AssessmentTitle"/>
-            <Picker x:Name="AssessmentType" BindingContext="AssessmentType">
-                <Picker.ItemsSource>
-                    <models:Assessment Type="ObjectiveAssessment"/>
-                    <models:Assessment Type="PerformanceAssessment"/>
-                </Picker.ItemsSource>
-            </Picker>
             <Label Text="Assessment Start" />
             <DatePicker x:Name="AssessmentStart" MinimumDate="2001-01-01" MaximumDate="3001-01-01" />
             <Label Text="Assessment End" />

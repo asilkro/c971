@@ -7,32 +7,26 @@ namespace CourseTracker.Models
     [Table("Assessment")]
     public class Assessment
     {
-        public enum AssessmentType
-        {
-            PerformanceAssessment,
-            ObjectiveAssessment,
-            Undefined
-        }
 
         [PrimaryKey, AutoIncrement]
         [Column("AssessmentId")]
         public string AssessmentId
-        { get; private set; }
+        { get; set; }
 
-        [Column("AssessmentTitle")]
-        public string AssessmentTitle
+        [Column("AssessmentName")]
+        public string AssessmentName
         { get; set; } = "Undefined";
 
         [Column("AssessmentType")]
-        public AssessmentType Type
-        { get; set; } = AssessmentType.Undefined;
+        public string AssessmentType
+        { get; set; } = "ObjectiveAssessment";
 
-        [Column("AssessmentStart")]
-        public DateTime StartDate
+        [Column("AssessmentStartDate")]
+        public DateTime AssessmentStartDate
         { get; set; } = DateTime.Today;
 
-        [Column("AssessmentEnd")]
-        public DateTime EndDate
+        [Column("AssessmentEndDate")]
+        public DateTime AssessmentEndDate
         { get; set; } = DateTime.Today.AddDays(30);
 
         [Column("CourseId")]
@@ -41,14 +35,14 @@ namespace CourseTracker.Models
 
         public void ValidateAssessment()
         {
-            if (string.IsNullOrEmpty(AssessmentTitle) || string.IsNullOrWhiteSpace(AssessmentTitle))
+            if (string.IsNullOrEmpty(AssessmentName) || string.IsNullOrWhiteSpace(AssessmentName))
             {
-                throw new ValidationException("AssessmentTitle cannot be null or empty");
+                throw new ValidationException("AssessmentName cannot be null or empty");
             }
 
-            if (StartDate > EndDate)
+            if (AssessmentStartDate > AssessmentEndDate)
             {
-                throw new ValidationException("StartDate cannot be after EndDate");
+                throw new ValidationException("AssessmentStartDate cannot be after AssessmentEndDate");
             }
 
             if (string.IsNullOrEmpty(CourseId) || string.IsNullOrWhiteSpace(CourseId))
@@ -63,14 +57,14 @@ namespace CourseTracker.Models
         {
         }
 
-        public Assessment(string assessmentTitle, AssessmentType assessmentType, DateTime startDate, DateTime endDate,
+        public Assessment(string assessmentName, AssessmentType assessmentType, DateTime assessmentStartDate, DateTime assessmentEndDate,
             string courseId)
         {
             ValidateAssessment();
-            AssessmentTitle = assessmentTitle;
+            AssessmentName = assessmentName;
             Type = assessmentType;
-            StartDate = startDate;
-            EndDate = endDate;
+            AssessmentStartDate = assessmentStartDate;
+            AssessmentEndDate = assessmentEndDate;
             CourseId = courseId;
         }
 

@@ -14,15 +14,19 @@ namespace CourseTracker.Models
 
         [Column("TermName")]
         public string TermName
-        { get; set; } = "Undefined Term Title";
+        { get; set; } = "Undefined Term Name";
 
-        [Column("TermStart")]
-        public DateTime TermStart
+        [Column("StartDate")]
+        public DateTime StartDate
         { get; set; } = DateTime.Today;
 
-        [Column("TermEnd")]
-        public DateTime TermEnd
+        [Column("EndDate")]
+        public DateTime EndDate
         { get; set; } = DateTime.Today.AddDays(90);
+
+        [Column("Courses")]
+        public List<string> Courses //List of CourseIds or CourseNames
+        { get; set; } = [];
 
 
         public void ValidateTerm()
@@ -32,9 +36,9 @@ namespace CourseTracker.Models
                 throw new ValidationException("TermName cannot be null or empty");
             }
 
-            if (TermStart > TermEnd)
+            if (StartDate > EndDate)
             {
-                throw new ValidationException("TermStart cannot be after TermEnd");
+                throw new ValidationException("StartDate cannot be after EndDate");
             }
         }
 
@@ -44,11 +48,11 @@ namespace CourseTracker.Models
         {
         }
 
-        public Term(string termName, DateTime termStart, DateTime termEnd)
+        public Term(string termName, DateTime startDate, DateTime endDate)
         {
             TermName = termName;
-            TermStart = termStart;
-            TermEnd = termEnd;
+            StartDate = startDate;
+            EndDate = endDate;
         }
 
         #endregion

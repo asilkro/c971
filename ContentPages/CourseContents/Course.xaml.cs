@@ -1,7 +1,7 @@
 ﻿using CourseTracker.Supplemental;
 using CourseTracker.ViewModels;
 
-namespace CourseTracker.ContentPages;
+namespace CourseTracker.ContentPages.CourseContents;
 
 public partial class Course
 {
@@ -14,6 +14,7 @@ public partial class Course
         InitializeComponent();
         BindingContext = new CourseView();
         var db = _conn.GetAsyncConnection();
+        PopulateTable();
         //TODO: Finish constructor
     }
 
@@ -60,5 +61,25 @@ public partial class Course
     {
         _ = DeleteCourse(_term); //TODO: Make sure this can actually bind to a term
         await Navigation.PopAsync();
+    }
+
+    private void PopulateTable()
+    {
+        TableSection ts = this.FindByName<TableSection>("Courses");
+        ts.Clear();
+        var courses = _conn.GetAsyncConnection().Table<Models.Course>().ToListAsync().Result;
+        foreach (var c in courses)
+        {
+            var cell = new TextCell
+            {
+                Text = c.CourseId,
+                Detail = c.CourseName,
+                CommandParameter = c
+            };
+            cell.Tapped += onCourseTapped;
+            ts.Add(cell);
+        }
+
+
     }
 }

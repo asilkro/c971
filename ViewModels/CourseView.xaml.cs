@@ -24,13 +24,13 @@ public partial class CourseView : ContentView
         set => SetValue(TermIdProperty, value);
     }
 
-    public static readonly BindableProperty TitleProperty =
-        BindableProperty.Create(nameof(Title), typeof(string), typeof(CourseView), string.Empty);
+    public static readonly BindableProperty CourseNameProperty =
+        BindableProperty.Create(nameof(CourseName), typeof(string), typeof(CourseView), string.Empty);
 
-    public string Title
+    public string CourseName
     {
-        get => (string)GetValue(TitleProperty);
-        set => SetValue(TitleProperty, value);
+        get => (string)GetValue(CourseNameProperty);
+        set => SetValue(CourseNameProperty, value);
     }
 
     public static readonly BindableProperty StartDateProperty =
@@ -52,11 +52,11 @@ public partial class CourseView : ContentView
     }
 
     public static readonly BindableProperty StatusProperty =
-        BindableProperty.Create(nameof(Status), typeof(Course.CourseStatuses), typeof(CourseView), Course.CourseStatuses.undefined);
+        BindableProperty.Create(nameof(Status), typeof(string), typeof(CourseView), "Undefined");
 
-    public Course.CourseStatuses Status
+    public string Status
     {
-        get => (Course.CourseStatuses)GetValue(StatusProperty);
+        get => (string)GetValue(StatusProperty);
         set => SetValue(StatusProperty, value);
     }
 
@@ -95,10 +95,36 @@ public partial class CourseView : ContentView
         get => (string)GetValue(NotesProperty);
         set => SetValue(NotesProperty, value);
     }
+
+    public static readonly BindableProperty CourseNotificationsProperty =
+        BindableProperty.Create(nameof(CourseNotifications), typeof(bool), typeof(CourseView), true);
+
+    public bool CourseNotifications
+    {
+        get => (bool)GetValue(CourseNotificationsProperty);
+        set => SetValue(CourseNotificationsProperty, value);
+    }
+
     #endregion
 
     public CourseView()
     {
         InitializeComponent();
+    }
+
+    public CourseView(Course course)
+    {
+        InitializeComponent();
+        CourseId = course.CourseId;
+        TermId = course.TermId;
+        CourseName = course.CourseName;
+        StartDate = course.StartDate;
+        EndDate = course.EndDate;
+        Status = course.Status;
+        InstructorName = course.InstructorName;
+        InstructorEmail = course.InstructorEmail;
+        InstructorPhone = course.InstructorPhone;
+        Notes = course.Notes;
+        CourseNotifications = course.CourseNotifications;
     }
 }

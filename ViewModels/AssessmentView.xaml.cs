@@ -31,22 +31,22 @@ public partial class AssessmentView : ContentView
         set => SetValue(AssessmentTypeProperty, value);
     }
 
-    public static readonly BindableProperty AssessmentStartProperty =
-        BindableProperty.Create(nameof(AssessmentStartProperty), typeof(DateTime), typeof(AssessmentView), DateTime.Today);
+    public static readonly BindableProperty AssessmentStartDateProperty =
+        BindableProperty.Create(nameof(AssessmentStartDateProperty), typeof(DateTime), typeof(AssessmentView), DateTime.Today);
 
-    public DateTime AssessmentStart
+    public DateTime AssessmentStartDate
     {
-        get => (DateTime)GetValue(AssessmentStartProperty);
-        set => SetValue(AssessmentStartProperty, value);
+        get => (DateTime)GetValue(AssessmentStartDateProperty);
+        set => SetValue(AssessmentStartDateProperty, value);
     }
 
-    public static readonly BindableProperty AssessmentEndProperty =
-        BindableProperty.Create(nameof(AssessmentEndProperty), typeof(DateTime), typeof(AssessmentView), DateTime.Today.AddDays(30));
+    public static readonly BindableProperty AssessmentEndDateProperty =
+        BindableProperty.Create(nameof(AssessmentEndDateProperty), typeof(DateTime), typeof(AssessmentView), DateTime.Today.AddDays(30));
 
-    public DateTime AssessmentEnd
+    public DateTime AssessmentEndDate
     {
-        get => (DateTime)GetValue(AssessmentEndProperty);
-        set => SetValue(AssessmentEndProperty, value);
+        get => (DateTime)GetValue(AssessmentEndDateProperty);
+        set => SetValue(AssessmentEndDateProperty, value);
     }
 
     public static readonly BindableProperty CourseIdProperty =
@@ -61,5 +61,16 @@ public partial class AssessmentView : ContentView
     public AssessmentView()
     {
         InitializeComponent();
+    }
+
+    public AssessmentView(Assessment assessment)
+    {
+        InitializeComponent();
+        AssessmentId = assessment.AssessmentId;
+        AssessmentName = assessment.AssessmentName;
+        AssessmentType = assessment.AssessmentType;
+        AssessmentStartDate = assessment.AssessmentStartDate;
+        AssessmentEndDate = assessment.AssessmentEndDate;
+        CourseId = assessment.CourseId;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CommunityToolkit.Maui.Core;
 using CourseTracker.Supplemental;
 using SQLite;
 
@@ -14,13 +15,13 @@ namespace CourseTracker.Models
 
         [Column("TermId")] public string TermId { get; set; } = "Placeholder";
 
-        [Column("Title")] public string Title { get; set; } = "Placeholder";
+        [Column("CourseName")] public string CourseName { get; set; } = "Placeholder";
 
         [Column("StartDate")] public DateTime StartDate { get; set; } = DateTime.Today.Date;
 
         [Column("EndDate")] public DateTime EndDate { get; set; } = DateTime.Today.AddDays(30);
 
-        [Column("Status")] public CourseStatuses Status { get; set; } = CourseStatuses.undefined;
+        [Column("Status")] public string Status { get; set; } = "Undefined";
 
         [Column("InstructorName")] public string InstructorName { get; set; } = "Placeholder CI";
 
@@ -29,31 +30,40 @@ namespace CourseTracker.Models
         [Column("InstructorPhone")] public string InstructorPhone { get; set; } = "555-555-1234";
 
         [Column("Notes")] public string Notes { get; set; } = "Placeholder Course Notes";
+        [Column("CourseNotifications")] public bool CourseNotifications { get; set; } = true;
 
-        public enum CourseStatuses
-        {
-            undefined,
-            planned,
-            inProgress,
-            awaitingEvaluation,
-            completed,
-            dropped,
-        }
 
         #endregion
 
         #region Methods / Validation
 
+        public bool CourseStatusIsValid(string status)
+        {
+            var result = status switch
+            {
+                "planned" => true,
+                "inProgress" => true,
+                "awaitingEvaluation" => true,
+                "completed" => true,
+                _ => false
+            };
+            return result;
+        }
+
         public void ValidateCourse()
         {
+            if (!CourseStatusIsValid(this.Status))
+            {
+                throw new ValidationException("Status is not valid");
+            }
             if (string.IsNullOrEmpty(CourseId))
             {
                 throw new ValidationException("CourseId cannot be null or empty");
             }
 
-            if (string.IsNullOrEmpty(Title))
+            if (string.IsNullOrEmpty(CourseName))
             {
-                throw new ValidationException("Title cannot be null or empty");
+                throw new ValidationException("CourseName cannot be null or empty");
             }
 
             if (StartDate > EndDate)
