@@ -3,7 +3,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:CourseTracker.Models"
-             x:Class="CourseTracker.ContentPages.Assessment">
+             x:Class="CourseTracker.ContentPages.AssessmentContents.Assessment">
     <ContentPage.Content>
         <StackLayout Orientation="Horizontal">
             <EntryCell Text="Assessment Title" x:Name="AssessmentTitle"/>

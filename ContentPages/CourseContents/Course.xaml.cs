@@ -65,21 +65,23 @@ public partial class Course
 
     private void PopulateTable()
     {
-        TableSection ts = this.FindByName<TableSection>("Courses");
+        var ts = this.FindByName<TableSection>("Courses");
         ts.Clear();
         var courses = _conn.GetAsyncConnection().Table<Models.Course>().ToListAsync().Result;
-        foreach (var c in courses)
+        foreach (var cell in courses.Select(c => new TextCell
+                 {
+                     Text = c.CourseId,
+                     Detail = c.CourseName,
+                     CommandParameter = c
+                 }))
         {
-            var cell = new TextCell
-            {
-                Text = c.CourseId,
-                Detail = c.CourseName,
-                CommandParameter = c
-            };
-            cell.Tapped += onCourseTapped;
+            cell.Tapped += OnCourseTapped;
             ts.Add(cell);
         }
+    }
 
-
+    private static void OnCourseTapped(object sender, EventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }

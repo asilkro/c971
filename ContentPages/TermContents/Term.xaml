@@ -2,18 +2,17 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CourseTracker.ContentPages.Term">
+             x:Class="CourseTracker.ContentPages.TermContents.Term">
     <ContentPage.Content>
-		<StackLayout Orientation="Vertical">
-            <EntryCell Label="Term Name" x:Name="TermName"/>
-			<Label Text="Start Date" />
-			<DatePicker x:Name="StartDate" MinimumDate="2001-01-01" MaximumDate="3001-01-01" />
-			<Label Text="End Date" />
-            <DatePicker x:Name="EndDate" MinimumDate="2001-01-01" MaximumDate="3001-01-01"/>
-			<Button Text="Add Term" Clicked="AddTerm_OnButtonClicked" />
+        <StackLayout Orientation="Vertical">
+            <EntryCell Label="Term Name" x:Name="TermName" />
+            <Label Text="Start Date" />
+            <DatePicker x:Name="StartDate" MinimumDate="2001-01-01" MaximumDate="3001-01-01" />
+            <Label Text="End Date" />
+            <DatePicker x:Name="EndDate" MinimumDate="2001-01-01" MaximumDate="3001-01-01" />
+            <Button Text="Add Term" Clicked="AddTerm_OnButtonClicked" />
             <Button Text="Update Term" Clicked="UpdateTerm_OnButtonClicked" />
-			<Button Text="Delete Term" Clicked="DeleteTerm_OnButtonClicked" />
-
-		</StackLayout>
-		</ContentPage.Content>
+            <Button Text="Delete Term" Clicked="DeleteTerm_OnButtonClicked" />
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

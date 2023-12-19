@@ -3,7 +3,7 @@ using SQLite;
 
 namespace CourseTracker.Supplemental;
 
-public class TrackerDb()
+public class TrackerDb
 {
     private Connection _connection;
     private SQLiteAsyncConnection _db;
@@ -11,16 +11,16 @@ public class TrackerDb()
     #region SQLite setup
     public const string DatabaseFilename = "TrackerDB.db3";
 
-    public const SQLite.SQLiteOpenFlags Flags =
+    public const SQLiteOpenFlags Flags =
         // Create our SQLite DB if it doesn't exist
-        SQLite.SQLiteOpenFlags.Create |
+        SQLiteOpenFlags.Create |
         // Set multi-thread DB access for performance
-        SQLite.SQLiteOpenFlags.SharedCache |
+        SQLiteOpenFlags.SharedCache |
         // We need to be able to read from and write to DB
-        SQLite.SQLiteOpenFlags.ReadWrite |
+        SQLiteOpenFlags.ReadWrite |
         // Configure data protection mode on the DB
         // Device must be unlocked for access
-        SQLite.SQLiteOpenFlags.ProtectionComplete;
+        SQLiteOpenFlags.ProtectionComplete;
 
     public static string DatabasePath =>
         Path.Combine(FileSystem.AppDataDirectory, DatabaseFilename);
@@ -41,10 +41,7 @@ public class TrackerDb()
             return;
         }
 
-        if (_connection == null)
-        {
-            _connection = new Connection();
-        }
+        _connection ??= new Connection();
 
         _db = _connection.GetAsyncConnection();
         await _db.EnableLoadExtensionAsync(true);

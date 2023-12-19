@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CourseTracker.ContentPages.TermContents;
 using static CourseTracker.Supplemental.Connection;
 using SQLite;
 

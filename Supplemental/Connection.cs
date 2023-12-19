@@ -2,7 +2,7 @@
 
 namespace CourseTracker.Supplemental;
 
-interface IAsyncSqLite
+internal interface IAsyncSqLite
 {
     SQLiteAsyncConnection GetAsyncConnection();
 }

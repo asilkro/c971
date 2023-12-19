@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CourseTracker.ContentPages.Instructor">
+             x:Class="CourseTracker.ContentPages.InstructorContents.Instructor">
     <ContentPage.Content>
         <StackLayout BindingContext="Instructor">
             <EntryCell Text="Instructor Name" x:Name="InstructorName"/>

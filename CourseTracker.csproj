@@ -102,6 +102,9 @@
 	  <Compile Update="ContentPages\InstructorContents\Instructor.xaml.cs">
 	    <DependentUpon>Instructor.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="ContentPages\InstructorContents\InstructorCreateModify.xaml.cs">
+	    <DependentUpon>InstructorCreateModify.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="ContentPages\TermContents\Term.xaml.cs">
 	    <DependentUpon>Term.xaml</DependentUpon>
 	  </Compile>
@@ -129,6 +132,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ContentPages\InstructorContents\Instructor.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="ContentPages\InstructorContents\InstructorCreateModify.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ContentPages\TermContents\Term.xaml">

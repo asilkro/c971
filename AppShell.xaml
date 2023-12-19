@@ -6,6 +6,9 @@
     xmlns:courseTracker="clr-namespace:CourseTracker"
     xmlns:contentPages="clr-namespace:CourseTracker.ContentPages"
     xmlns:courseContents="clr-namespace:CourseTracker.ContentPages.CourseContents"
+    xmlns:assessmentContents="clr-namespace:CourseTracker.ContentPages.AssessmentContents"
+    xmlns:instructorContents="clr-namespace:CourseTracker.ContentPages.InstructorContents"
+    xmlns:termContents="clr-namespace:CourseTracker.ContentPages.TermContents"
     FlyoutBehavior="Flyout">
 
     <ShellContent
@@ -18,17 +21,17 @@
         Route="//ContentPages/Course" />
     <ShellContent
         Title="Assessments"
-        ContentTemplate="{DataTemplate contentPages:Assessment}" 
+        ContentTemplate="{DataTemplate assessmentContents:Assessment}" 
         Route="//ContentPages/Assessment" />
     <ShellContent
         Title="Terms"
-        ContentTemplate="{DataTemplate contentPages:Term}"
+        ContentTemplate="{DataTemplate termContents:Term}"
         Route="//ContentPages/Term" >
-		<contentPages:Term/>
+		<termContents:Term/>
     </ShellContent>
     <ShellContent
         Title="Course Instructors"
-        ContentTemplate="{DataTemplate contentPages:Instructor}"
+        ContentTemplate="{DataTemplate instructorContents:Instructor}"
         Route="//ContentPages/Instructor" />
 
 </Shell>

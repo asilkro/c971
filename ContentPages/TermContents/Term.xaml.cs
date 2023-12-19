@@ -1,7 +1,7 @@
 ﻿using CourseTracker.Supplemental;
 using CourseTracker.ViewModels;
 
-namespace CourseTracker.ContentPages;
+namespace CourseTracker.ContentPages.TermContents;
 
 public partial class Term
 {

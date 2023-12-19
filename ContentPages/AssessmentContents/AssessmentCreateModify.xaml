@@ -5,6 +5,7 @@
              x:Class="CourseTracker.ContentPages.AssessmentContents.AssessmentCreateModify">
     <ContentPage.Content>
         <StackLayout>
+            <Label Text="Assessment Create/Modify" FontSize="Title" HorizontalOptions="Center" />
             <EntryCell Label ="Assessment Id" x:Name="AssessmentId"  Text="{Binding AssessmentId}" />
             <EntryCell Label ="Assessment Name" x:Name="AssessmentName" Text="{Binding AssessmentName}" />
             <EntryCell Label ="Assessment Type" x:Name="AssessmentType" Text="{Binding AssessmentType}" />
