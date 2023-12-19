@@ -16,13 +16,15 @@ public partial class CourseCreateModify
     public static Term term { get; set; }
 
 
-    private void DateSetup()
+    public void DateSetup()
     {
-        StartDate.MinimumDate= term.StartDate.Date;
+      /*
+       StartDate.MinimumDate= term.StartDate.Date;
         StartDate.MaximumDate = term.EndDate.Date;
 
         EndDate.MinimumDate = term.StartDate.MinimumDate;
         EndDate.MaximumDate = term.EndDate.MaximumDate;
+      */
     }
     public CourseCreateModify()
     {

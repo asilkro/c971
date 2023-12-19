@@ -23,11 +23,11 @@ public partial class AssessmentView : ContentView
     }
 
     public static readonly BindableProperty AssessmentTypeProperty =
-        BindableProperty.Create(nameof(AssessmentType), typeof(Assessment.AssessmentType), typeof(AssessmentView), Assessment.AssessmentType.Undefined);
+        BindableProperty.Create(nameof(AssessmentType), typeof(string), typeof(AssessmentView), string.Empty);
 
-    public Assessment.AssessmentType AssessmentType
+    public string AssessmentType
     {
-        get => (Assessment.AssessmentType)GetValue(AssessmentTypeProperty);
+        get => (string)GetValue(AssessmentTypeProperty);
         set => SetValue(AssessmentTypeProperty, value);
     }
 
@@ -50,7 +50,7 @@ public partial class AssessmentView : ContentView
     }
 
     public static readonly BindableProperty CourseIdProperty =
-        BindableProperty.Create(nameof(CourseId), typeof(string), typeof(AssessmentView), string.Empty);
+        BindableProperty.Create(nameof(CourseIdProperty), typeof(string), typeof(AssessmentView), string.Empty);
 
     public string CourseId
     {
@@ -71,6 +71,7 @@ public partial class AssessmentView : ContentView
         AssessmentType = assessment.AssessmentType;
         AssessmentStartDate = assessment.AssessmentStartDate;
         AssessmentEndDate = assessment.AssessmentEndDate;
-        CourseId = assessment.CourseId;
     }
+
+    public string AssessmentCourseId { get; set; }
 }

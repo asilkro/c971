@@ -41,11 +41,11 @@ public partial class TermView
     }
 
     public static readonly BindableProperty CoursesProperty =
-        BindableProperty.Create(nameof(Courses), typeof(List<Course>), typeof(TermView), new List<Course>());
+        BindableProperty.Create(nameof(Courses), typeof(List<string>), typeof(TermView), new List<string>());
 
-    public List<Course> Courses
+    public List<string> Courses
     {
-        get => (List<Course>)GetValue(CoursesProperty);
+        get => (List<string>)GetValue(CoursesProperty);
         set => SetValue(CoursesProperty, value);
     }
 
@@ -71,6 +71,5 @@ public partial class TermView
         StartDate = term.StartDate;
         EndDate = term.EndDate;
         Courses = term.Courses;
-        Notes = term.Notes;
     }
 }

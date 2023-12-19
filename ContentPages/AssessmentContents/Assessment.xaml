@@ -2,16 +2,15 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:CourseTracker.Models"
              x:Class="CourseTracker.ContentPages.AssessmentContents.Assessment">
-    <ContentPage.Content>
-        <StackLayout Orientation="Horizontal">
-            <EntryCell Text="Assessment Title" x:Name="AssessmentTitle"/>
+    <StackLayout Orientation="Horizontal" BindingContext="ViewModels:AssessmentView">
+        <Label Text="Assessment Title" FontSize="24" />
+            <Entry x:Name="AssessmentTitle"/>
             <Label Text="Assessment Start" />
             <DatePicker x:Name="AssessmentStart" MinimumDate="2001-01-01" MaximumDate="3001-01-01" />
             <Label Text="Assessment End" />
             <DatePicker x:Name="AssessmentEnd" MinimumDate="2001-01-01" MaximumDate="3001-01-01"/>
-            <EntryCell Text="Course ID" x:Name="CourseId"/>
+            <Label Text="Course Id"/>
+            <Entry x:Name="CourseId"/>
         </StackLayout>
-    </ContentPage.Content>
 </ContentPage>

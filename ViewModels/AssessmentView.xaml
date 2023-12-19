@@ -3,5 +3,14 @@
 <ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CourseTracker.ViewModels.AssessmentView">
-    
+    <StackLayout Orientation="Horizontal">
+        <Label Text="Assessment Title" FontSize="24" />
+        <Entry x:Name="AssessmentTitle"/>
+        <Label Text="Assessment Start" />
+        <DatePicker x:Name="AssessmentStart" MinimumDate="2001-01-01" MaximumDate="3001-01-01" />
+        <Label Text="Assessment End" />
+        <DatePicker x:Name="AssessmentEnd" MinimumDate="2001-01-01" MaximumDate="3001-01-01"/>
+        <Label Text="Course Id"/>
+        <Entry x:Name="CourseId"/>
+    </StackLayout>
 </ContentView>

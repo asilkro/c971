@@ -2,11 +2,9 @@
 
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:models="clr-namespace:CourseTracker.Models"
              x:Class="CourseTracker.ContentPages.CourseContents.Course">
 		<StackLayout BindingContext="Course">
-        <TableSection
-                Title="Courses">
+        <TableSection>
                 <EntryCell Label="Course Id" Placeholder="Course Id" Text="{Binding CourseId}" />
                 <EntryCell Label="Term Id" Placeholder="Term Id" Text="{Binding TermId}" />
                 <EntryCell Label="Course Name" Placeholder="Course Name" Text="{Binding CourseName}" />
