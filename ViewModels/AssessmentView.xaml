@@ -10,7 +10,7 @@
         <DatePicker x:Name="AssessmentStart" MinimumDate="2001-01-01" MaximumDate="3001-01-01" />
         <Label Text="Assessment End" />
         <DatePicker x:Name="AssessmentEnd" MinimumDate="2001-01-01" MaximumDate="3001-01-01"/>
-        <Label Text="Course Id"/>
-        <Entry x:Name="CourseId"/>
+        <Label Text="Related Course Id"/>
+        <Entry x:Name="RelatedCourseId"/>
     </StackLayout>
 </ContentView>

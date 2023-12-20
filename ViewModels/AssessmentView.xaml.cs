@@ -2,7 +2,7 @@
 
 namespace CourseTracker.ViewModels;
 
-public partial class AssessmentView : ContentView
+public partial class AssessmentView
 {
     public static readonly BindableProperty AssessmentIdProperty =
         BindableProperty.Create(nameof(AssessmentId), typeof(string), typeof(AssessmentView), string.Empty);
@@ -49,15 +49,6 @@ public partial class AssessmentView : ContentView
         set => SetValue(AssessmentEndDateProperty, value);
     }
 
-    public static readonly BindableProperty CourseIdProperty =
-        BindableProperty.Create(nameof(CourseIdProperty), typeof(string), typeof(AssessmentView), string.Empty);
-
-    public string CourseId
-    {
-        get => (string)GetValue(CourseIdProperty);
-        set => SetValue(CourseIdProperty, value);
-    }
-
     public AssessmentView()
     {
         InitializeComponent();
@@ -72,6 +63,4 @@ public partial class AssessmentView : ContentView
         AssessmentStartDate = assessment.AssessmentStartDate;
         AssessmentEndDate = assessment.AssessmentEndDate;
     }
-
-    public string AssessmentCourseId { get; set; }
 }

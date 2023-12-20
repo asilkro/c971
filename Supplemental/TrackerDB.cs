@@ -67,7 +67,7 @@ public class TrackerDb
     public async Task<List<Assessment>> GetAssessmentsByCourseIdAsync(string courseId)
     {
         await Initialize();
-        return await _db.Table<Assessment>().Where(a => a.CourseId == courseId).ToListAsync();
+        return await _db.Table<Assessment>().Where(a => a.RelatedCourseId == courseId).ToListAsync();
     }
 
     public async Task<List<Course>> GetCoursesAsync()

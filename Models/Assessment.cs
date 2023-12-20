@@ -29,8 +29,8 @@ public class Assessment
     public DateTime AssessmentEndDate
     { get; set; } = DateTime.Today.AddDays(30);
 
-    [Column("CourseId")]
-    public string CourseId
+    [Column("RelatedCourseId")]
+    public string RelatedCourseId
     { get; set; }
 
     public void ValidateAssessment()
@@ -45,9 +45,9 @@ public class Assessment
             throw new ValidationException("AssessmentStartDate cannot be after AssessmentEndDate");
         }
 
-        if (string.IsNullOrEmpty(CourseId) || string.IsNullOrWhiteSpace(CourseId))
+        if (string.IsNullOrEmpty(RelatedCourseId) || string.IsNullOrWhiteSpace(RelatedCourseId))
         {
-            throw new ValidationException("Related CourseId cannot be null or empty");
+            throw new ValidationException("RelatedCourseId cannot be null or empty");
         }
     }
 
@@ -58,14 +58,14 @@ public class Assessment
     }
 
     public Assessment(string assessmentName, string assessmentType, DateTime assessmentStartDate, DateTime assessmentEndDate,
-        string courseId)
+        string relatedCourseId)
     {
         ValidateAssessment();
         AssessmentName = assessmentName;
         AssessmentType = assessmentType;
         AssessmentStartDate = assessmentStartDate;
         AssessmentEndDate = assessmentEndDate;
-        CourseId = courseId;
+        RelatedCourseId = relatedCourseId;
     }
 
     #endregion

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CourseTracker", "CourseTracker.csproj", "{9C717755-A509-42EC-A2AC-47EF465043E4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CourseTrackerTests", "..\CourseTrackerTests\CourseTrackerTests.csproj", "{8AA1D61B-CD2E-4501-B275-B969F956D7C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -16,6 +18,10 @@ Global
 		{9C717755-A509-42EC-A2AC-47EF465043E4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{9C717755-A509-42EC-A2AC-47EF465043E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C717755-A509-42EC-A2AC-47EF465043E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AA1D61B-CD2E-4501-B275-B969F956D7C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AA1D61B-CD2E-4501-B275-B969F956D7C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AA1D61B-CD2E-4501-B275-B969F956D7C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AA1D61B-CD2E-4501-B275-B969F956D7C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

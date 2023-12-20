@@ -24,7 +24,7 @@ public partial class AssessmentCreateModify
         AssessmentType.Text = assessment.AssessmentType;
         AssessmentStartDate.Date = assessment.AssessmentStartDate;
         AssessmentEndDate.Date = assessment.AssessmentEndDate;
-        CourseId.Text = assessment.CourseId;
+        CourseId.Text = assessment.RelatedCourseId;
         AssessmentId.Text = assessment.AssessmentId;
         Save.IsEnabled = true;
     }
