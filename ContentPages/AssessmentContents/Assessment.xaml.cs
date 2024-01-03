@@ -23,7 +23,7 @@ public partial class Assessment
         BindingContext = new AssessmentView();
         var db = _conn.GetAsyncConnection();
         await db.InsertAsync(new Models.Assessment()); //TODO: BUILD CONSTRUCTOR FROM INPUTS
-        ((AssessmentView)BindingContext).RelatedCourseId.Text = course.CourseId;
+        //((AssessmentView)BindingContext).RelatedCourseId.Text = course.CourseId;
     }
 
     public async Task UpdateAssessment(Models.Course course)
@@ -32,7 +32,7 @@ public partial class Assessment
         BindingContext = new AssessmentView();
         var db = _conn.GetAsyncConnection();
         await db.UpdateAsync(new Models.Assessment()); //TODO: BUILD CONSTRUCTOR FROM INPUTS
-        ((AssessmentView)BindingContext).RelatedCourseId.Text = course.CourseId;
+        //((AssessmentView)BindingContext).RelatedCourseId.Text = course.CourseId;
     }
 
     public async Task DeleteAssessment(Models.Course course)

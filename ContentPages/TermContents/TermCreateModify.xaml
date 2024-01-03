@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:generic="clr-namespace:System.Collections.Generic;assembly=System.Collections"
+             x:Class="CourseTracker.ContentPages.TermContents.TermCreateModify">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Term Create/Modify" FontSize="Title" HorizontalOptions="Center" />
+            <EntryCell Label="Term Name" x:Name="TermName" Text="{Binding TermName}" />
+            <Label Text="Term Start" FontSize="Title" HorizontalOptions="Center" />
+            <DatePicker x:Name="TermStart"/>
+            <Label Text="Term End" FontSize="Title" HorizontalOptions="Center" />
+            <DatePicker x:Name="TermEnd"/>
+            <Label Text="Course #1" HorizontalOptions="Center" x:Name="Course1Label"/>
+            <Picker x:Name="Course1" ItemsSource ="{Binding Course}" SelectedItem="{Binding Course1}"/>
+            <Label Text="Course #2" HorizontalOptions="Center" x:Name="Course2Label"/>
+            <Picker x:Name="Course2" ItemsSource ="{Binding Course}" SelectedItem="{Binding Course2}"/>
+            <Label Text="Course #3" HorizontalOptions="Center" x:Name="Course3Label"/>
+            <Picker x:Name="Course3" ItemsSource ="{Binding Course}" SelectedItem="{Binding Course3}"/>
+            <Label Text="Course #4" HorizontalOptions="Center" x:Name="Course4Label"/>
+            <Picker x:Name="Course4" ItemsSource ="{Binding Course}" SelectedItem="{Binding Course4}"/>
+            <Label Text="Course #5" HorizontalOptions="Center" x:Name="Course5Label"/>
+            <Picker x:Name="Course5" ItemsSource ="{Binding Course}" SelectedItem="{Binding Course5}"/>
+            <Label Text="Course #6" HorizontalOptions="Center" x:Name="Course6Label"/>
+            <Picker x:Name="Course6" ItemsSource ="{Binding Course}" SelectedItem="{Binding Course6}"/>
+            <Button Text="Save" x:Name="Save" Command="{Binding SaveButton}" />
+            <Button Text="Cancel" x:Name="Cancel" Command="{Binding CancelButton}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

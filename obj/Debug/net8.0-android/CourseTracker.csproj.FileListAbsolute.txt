@@ -107,3 +107,5 @@ C:\Users\thata\source\repos\asilkro\c971\obj\Debug\net8.0-android\CourseTracker.
 C:\Users\thata\source\repos\asilkro\c971\obj\Debug\net8.0-android\CourseTracker.AssemblyInfo.cs
 C:\Users\thata\source\repos\asilkro\c971\obj\Debug\net8.0-android\CourseTracker.csproj.CoreCompileInputs.cache
 C:\Users\thata\source\repos\asilkro\c971\obj\Debug\net8.0-android\CourseTracker.sourcelink.json
+C:\Users\thata\source\repos\asilkro\c971\obj\Debug\net8.0-android\CourseTracker.dll
+C:\Users\thata\source\repos\asilkro\c971\obj\Debug\net8.0-android\CourseTracker.pdb

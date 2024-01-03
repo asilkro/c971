@@ -5,8 +5,9 @@
              x:Class="CourseTracker.ContentPages.CourseContents.Course">
 	<ContentPage.Content>
     <StackLayout x:Name="CourseList">
+        <TableView>
         <TableSection x:Name="Courses">
-                <EntryCell Label="Course Id" Placeholder="Course Id" Text="{Binding RelatedCourseId}" />
+            <EntryCell Label="Course Id" Placeholder="Course Id" Text="{Binding RelatedCourseId}" />
                 <EntryCell Label="Term Id" Placeholder="Term Id" Text="{Binding TermId}" />
                 <EntryCell Label="Course Name" Placeholder="Course Name" Text="{Binding CourseName}" />
                 <EntryCell Label="Course Start Date" Placeholder="Course Start Date" Text="{Binding CourseStartDate}" />
@@ -17,6 +18,7 @@
                 <EntryCell Label="Course Instructor Email" Placeholder="Course Instructor Email" Text="{Binding CourseInstructorEmail}" />
                 <EntryCell Label="Course Notes" Placeholder="Course Notes" Text="{Binding CourseNotes}" />
         </TableSection>
+        </TableView>
     </StackLayout>
     </ContentPage.Content>
 </ContentPage>
